@@ -1,0 +1,27 @@
+version: '3'
+
+networks:
+    dockerhadoop:
+      driver: bridge
+
+services:
+    masternode:
+        build:
+            context: ./masternode
+        tty: true
+        networks:
+            - dockerhadoop
+
+    slave01:
+        build:
+            context: ./slavenode
+        tty: true
+        networks:
+            - dockerhadoop
+
+    slave02:
+        build:
+            context: ./slavenode
+        tty: true
+        networks:
+            - dockerhadoop
